@@ -1,0 +1,207 @@
+/* General container */
+.login-page .login-container {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #5a67d8, #d946ef);
+  padding: 20px;
+}
+
+/* Left side of the login container */
+.login-page .left-side {
+  flex: 1;
+  background: rgba(58, 75, 143, 0.9);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.login-page .left-side h1 {
+  font-size: 3.8rem;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.login-page .left-side p {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  max-width: 450px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Right side of the login container */
+.login-page .right-side {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Glassmorphism form styling */
+.login-page form {
+  width: 100%;
+  max-width: 450px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.login-page form h2 {
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+}
+
+/* Form group styling */
+.login-page .form-group {
+  margin-bottom: 20px;
+}
+
+/* Label styling */
+.login-page label {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 8px;
+  display: block;
+  font-weight: 600;
+}
+
+/* Input styling */
+.login-page input {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.login-page input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.login-page input:focus {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+/* Button styling */
+.login-page button {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(90deg, #6e7bff, #d946ef);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.login-page button:hover {
+  background: linear-gradient(90deg, #5a67d8, #c026d3);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .login-page .login-container {
+    flex-direction: column;
+    height: auto;
+    padding: 40px 20px;
+  }
+
+  .login-page .left-side {
+    padding: 30px;
+    border-radius: 15px;
+  }
+
+  .login-page .left-side h1 {
+    font-size: 2.5rem;
+  }
+
+  .login-page .right-side {
+    padding: 20px;
+  }
+
+  .login-page form {
+    padding: 30px;
+  }
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Adjusting the spinner position */
+.spinner {
+  margin-top: 10px; /* Space between the button and the spinner */
+  position: relative;
+  width: 4px; /* Size of the spinner */
+  height: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto; /* Centers the spinner horizontally */
+}
+
+/* Spinner styling */
+.spinner div {
+  position: absolute;
+  width: 50%;
+  height: 150%;
+  background: #000000;
+  transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1%));
+  animation: spinner-fzua35 1s calc(var(--delay) * 1s) infinite ease;
+}
+
+/* Spinner animation (same as before) */
+.spinner div:nth-child(1) { --delay: 0.1; --rotation: 36; --translation: 150; }
+.spinner div:nth-child(2) { --delay: 0.2; --rotation: 72; --translation: 150; }
+.spinner div:nth-child(3) { --delay: 0.3; --rotation: 108; --translation: 150; }
+.spinner div:nth-child(4) { --delay: 0.4; --rotation: 144; --translation: 150; }
+.spinner div:nth-child(5) { --delay: 0.5; --rotation: 180; --translation: 150; }
+.spinner div:nth-child(6) { --delay: 0.6; --rotation: 216; --translation: 150; }
+.spinner div:nth-child(7) { --delay: 0.7; --rotation: 252; --translation: 150; }
+.spinner div:nth-child(8) { --delay: 0.8; --rotation: 288; --translation: 150; }
+.spinner div:nth-child(9) { --delay: 0.9; --rotation: 324; --translation: 150; }
+.spinner div:nth-child(10) { --delay: 1; --rotation: 360; --translation: 150; }
+
+@keyframes spinner-fzua35 {
+  0%, 10%, 20%, 30%, 50%, 60%, 70%, 80%, 90%, 100% {
+    transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1%));
+  }
+  50% {
+    transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1.5%));
+  }
+}

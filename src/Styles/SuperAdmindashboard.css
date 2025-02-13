@@ -1,0 +1,197 @@
+/* Dashboard container */
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    background: #f5f5fa;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    max-width: 1400px;
+    margin: 20px auto;
+}
+
+/* Left-side section */
+.left-sidee {
+    background: linear-gradient(135deg, #3a4b8f, #5b53d6);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Heading styles */
+.company-data-heading {
+    font-size: 24px;
+    color: #444;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Table styling */
+table.company-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(44, 37, 51, 0.1);
+}
+
+table.company-table th,
+table.company-table td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table.company-table th {
+    background: linear-gradient(45deg, #6366f1, #1607e9);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 16px 20px;
+}
+
+table.company-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table.company-table tbody tr:hover {
+    background-color: #ebebff;
+    cursor: pointer;
+    transform: translateY(-2px);
+    transition: all 0.2s ease-in-out;
+}
+
+/* Image styles */
+table.company-table img {
+    max-width: 50px;
+    height: auto;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 3px;
+    background: white;
+    transition: transform 0.2s ease-in-out;
+}
+
+table.company-table img:hover {
+    transform: scale(1.1);
+}
+
+/* Error message */
+.error-message {
+    color: red;
+    font-weight: bold;
+}
+
+/* Buttons */
+.add-button, .edit-button {
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    display: inline-block;
+}
+
+/* Add Button */
+.add-button {
+    background: linear-gradient(135deg, #4c68ff, #1607e9);
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.add-button:hover {
+    background: linear-gradient(135deg, #1607e9, #4c68ff);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Edit Button */
+.edit-button {
+    background-color: #1e07ee;
+    color: white;
+    padding: 10px 20px;
+}
+
+.edit-button:hover {
+    background-color: #490af7;
+    transform: scale(1.05);
+}
+
+.edit-button:active {
+    transform: scale(0.95);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dashboard-container {
+        padding: 20px;
+    }
+
+    table.company-table th,
+    table.company-table td {
+        padding: 10px;
+    }
+
+    .add-button, .edit-button {
+        width: 100%;
+        font-size: 14px;
+    }
+}
+/* Style for profile button */
+.profile-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    position: relative;
+  }
+  
+  /* Dropdown menu styling */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  .dropdown-menu {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgb(8 6 6 / 97%);
+    list-style: none;
+    padding: 5px 0;
+    width: 120px;
+    z-index: 1000;
+}
+  
+  .dropdown-menu li {
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .dropdown-menu li:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Logout option */
+  .logout-option {
+    color: red;
+    font-weight: bold;
+  }
+  
