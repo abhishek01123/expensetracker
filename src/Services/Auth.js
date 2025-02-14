@@ -105,3 +105,23 @@ export const UpdateCompanyData = async (companyData, companyLogo) => {
 
     return await apiRequest("PUT", "UpdateCompany", formData, true);
 };
+
+
+
+
+export const GetMasterEmployee = async () => {
+    try {
+        const sysAccount_UUId = localStorage.getItem('sysAccount_UUId'); 
+
+        if (!sysAccount_UUId) {
+            console.error("No sysAccount_UUId found in localStorage");
+            return;
+        }
+
+        const response = await apiRequest("GET", `MasterEmployee/GetMasterEmployee?SysAccount_uuid=${encodeURIComponent(sysAccount_UUId)}`);
+        
+             return response;
+    } catch (error) {
+        console.error("Error fetching employee data:", error);
+    }
+};

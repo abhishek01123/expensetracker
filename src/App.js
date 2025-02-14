@@ -12,7 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/dashboard" element={<SuperAdmindashboard />} />
-        <Route path="/masteremployee" element={<MasterEmployee />} /> {/* CompanyAdmin's page */}
+        <Route path="/masteremployee" element={<MasterEmployee />} />
 
         <Route path="/login" element={<Login />} />  {/* ✅ Ensure this route exists */}
 

@@ -12,34 +12,42 @@ const Login = () => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-
+	
 		if (!email || !password) {
 			setErrorMessage('Email and password are required.');
 			return;
 		}
-
+	
 		setErrorMessage('');
 		setLoading(true);
-
+	
 		try {
 			const response = await GetUserData(email, password);
-			console.log('response', response);
-
+			console.log('Login Response:', response);
+	
 			if (response.message === 'Login Successfully') {
 
-
         // CONVERT JSON DATA IN ARRAY 
-				const convertedJson = JSON.stringify(response);
-				console.log('convertedJson', convertedJson);
+		    const convertedJson = JSON.stringify(response);
+		    console.log('convertedJson', convertedJson);
 
-				// Store in localStorage
-				localStorage.setItem('Login', convertedJson);
 
-				navigate('/dashboard');
+				// Store user details in localStorage
+				localStorage.setItem('Login', JSON.stringify(response));
+				localStorage.setItem('sysAccount_UUId', response.sysAccount_UUId);
+	
+
+				
+				if (response.usertype === "CompanyAdmin") {
+					navigate('/masteremployee');
+
+				} else {
+					navigate('/dashboard');
+				}
 			} else {
 				setErrorMessage('Invalid email or password. Please try again.');
 			}
-
+	
 		} catch (error) {
 			console.error('Login Error: ', error);
 			setErrorMessage('An error occurred while logging in. Please try again.');
@@ -47,8 +55,9 @@ const Login = () => {
 			setLoading(false);
 		}
 	};
+	
 	return (
-		<div className="login-page">  {/* Add a unique class */}
+		<div className="login-page">  
 		  <div className="login-container">
 			<div className="left-side">
 			  <h1>ExpenseTracker</h1>
