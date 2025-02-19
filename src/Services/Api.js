@@ -31,8 +31,7 @@ const apiRequest = async (method, endpoint, data = null, isFormData = false) => 
     };
 
     try {
-        const response = await fetch(`http://192.168.2.111:5114/api/${endpoint}`, options);
-        console.log("API response:", response);
+        const response = await fetch(`http://192.168.2.104:5114/api/${endpoint}`, options);
 
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 

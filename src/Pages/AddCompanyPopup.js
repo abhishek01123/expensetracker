@@ -217,6 +217,7 @@ const AddCompanyPopup = ({ onClose, onCompanyAdded }) => {
     <input type="text" name="Address" placeholder="Address" value={companyData.Address} onChange={handleChange} required />
 </div>
 
+
 <div className="form-row">
     <select name="Country" value={companyData.Country} onChange={handleChange} required>
         <option value="">Select Country</option>
@@ -230,6 +231,7 @@ const AddCompanyPopup = ({ onClose, onCompanyAdded }) => {
         {states.map((state) => (<option key={state.value} value={state.value}>{state.text}</option>))}
     </select>
 </div>
+
 
 <div className="form-row">
     <select name="City" value={companyData.City} onChange={handleChange} disabled={!companyData.State} required>

@@ -76,3 +76,84 @@ tbody tr:last-child td {
         font-size: 12px;
     }
 }
+.master-employee-container {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+  }
+  
+  h2 {
+    margin-bottom: 15px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: flex-start; /* Aligns the button to the left */
+    margin-bottom: 15px;
+  }
+  
+  .add-employee-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 0; /* Ensures no extra space */
+    position: absolute;
+    left: 70px; /* Adjust as needed */
+    top: 25px;
+  }.button-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start; /* Aligns button to the left */
+    margin-bottom: 10px; /* Adds spacing before the table */
+  }
+  
+  .add-employee-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  
+  .add-employee-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .employee-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .employee-table th, .employee-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .employee-table th {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .edit-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .edit-btn:hover {
+    background-color: #218838;
+  }
+  

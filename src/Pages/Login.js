@@ -23,19 +23,20 @@ const Login = () => {
 	
 		try {
 			const response = await GetUserData(email, password);
-			console.log('Login Response:', response);
 	
 			if (response.message === 'Login Successfully') {
 
+				
         // CONVERT JSON DATA IN ARRAY 
 		    const convertedJson = JSON.stringify(response);
-		    console.log('convertedJson', convertedJson);
+		    // console.log('convertedJson', convertedJson);
+
 
 
 				// Store user details in localStorage
 				localStorage.setItem('Login', JSON.stringify(response));
 				localStorage.setItem('sysAccount_UUId', response.sysAccount_UUId);
-	
+				localStorage.setItem('companyID',response.companyID)
 
 				
 				if (response.usertype === "CompanyAdmin") {

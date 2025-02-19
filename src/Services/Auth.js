@@ -93,6 +93,7 @@ export const EditCompanyDetails = async (Syscompany_uuid) => {
 };
 
 
+
 export const UpdateCompanyData = async (companyData, companyLogo) => {
 
     if (!companyData?.syscompany_uuid) throw new Error("Company UUID is required for updating.");
@@ -109,6 +110,7 @@ export const UpdateCompanyData = async (companyData, companyLogo) => {
 
 
 
+
 export const GetMasterEmployee = async () => {
     try {
         const sysAccount_UUId = localStorage.getItem('sysAccount_UUId'); 
@@ -118,10 +120,42 @@ export const GetMasterEmployee = async () => {
             return;
         }
 
-        const response = await apiRequest("GET", `MasterEmployee/GetMasterEmployee?SysAccount_uuid=${encodeURIComponent(sysAccount_UUId)}`);
+ const response = await apiRequest("GET", `MasterEmployee/GetMasterEmployee?SysAccount_uuid=${encodeURIComponent(sysAccount_UUId)}`);
         
-             return response;
+      return response;
     } catch (error) {
         console.error("Error fetching employee data:", error);
     }
 };
+
+
+
+export const GetRoleNames = async () => {
+    try {
+
+        const response = await apiRequest("GET", "MasterEmployee/GetRoleNames");
+    
+        return response.data || [];
+        
+    } catch (error) {
+        console.error("Error fetching role names:", error);
+        return [];
+    }
+};
+
+
+
+export const postEmployeeData = async (employeeData) => {
+    try {
+  
+      const response = await apiRequest('POST', 'MasterEmployee/AddMasterEmployee', employeeData);
+  
+      console.log('API Response:', response);
+  
+    } catch (error) {
+      console.error('Error posting employee data:', error);
+      throw error;
+    }
+  };
+  
+  

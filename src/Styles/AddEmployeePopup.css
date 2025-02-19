@@ -1,0 +1,142 @@
+/* AddEmployeePopup.css */
+
+/* Container for the modal overlay */
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    padding: 20px;
+  }
+  
+  /* The modal form itself */
+  .modal-form {
+    width: 100%;
+    max-width: 600px;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Modal form header */
+  .modal-form h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  
+  /* Input and select fields styling */
+  .modal-form input,
+  .modal-form select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+  
+  /* Focus styles for inputs and selects */
+  .modal-form input:focus,
+  .modal-form select:focus {
+    outline: none;
+    border-color: #008CBA;
+    box-shadow: 0px 0px 5px rgba(0, 140, 186, 0.5);
+  }
+  
+  /* File input extra spacing */
+  .modal-form input[type="file"] {
+    margin-top: 10px;
+  }
+  
+  /* Container for rows of form fields */
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+  }
+  
+  /* Adjust inputs/selects inside form rows */
+  .form-row input,
+  .form-row select {
+    width: 48%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+  
+  /* Button group styling */
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  /* General button styling */
+  .submit-button,
+  .close-modal-button {
+    width: 48%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  /* Submit button styles */
+  .submit-button {
+    background-color: #008CBA;
+    color: #fff;
+  }
+  
+  .submit-button:hover {
+    background-color: #007B9E;
+  }
+  
+  /* Close button styles */
+  .close-modal-button {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .close-modal-button:hover {
+    background-color: #d32f2f;
+  }
+  
+  /* Optional logo preview styling */
+  .logo-preview {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .logo-preview img {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+  }
+  
+  /* Message styling */
+  p {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
