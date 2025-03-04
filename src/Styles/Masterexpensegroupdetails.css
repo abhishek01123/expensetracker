@@ -1,0 +1,236 @@
+/* Modal Overlay */
+.modal-overlay {
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+/* Modal Content */
+.modal-content {
+    background: linear-gradient(135deg, #ffffff, #f9f9f9);
+    width: 700px;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    border: 1px solid #ddd;
+    height: auto;
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Modal Header */
+.modal-header {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #222;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* Modal Body */
+.modal-body {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.expense-input-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.expense-input-label {
+    font-size: 1rem;
+    margin-bottom: 6px;
+    color: #555;
+    font-weight: 600;
+}
+
+.expense-input {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.expense-input:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.4);
+}
+
+/* Modal Footer */
+.modal-footer {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.submit-expense-btn, .close-popup-btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+    font-weight: bold;
+}
+
+.submit-expense-btn {
+    background: linear-gradient(90deg, #4CAF50, #45a049);
+    color: #fff;
+}
+
+.submit-expense-btn:hover {
+    background: #45a049;
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);
+}
+
+.close-popup-btn {
+    background: linear-gradient(90deg, #f44336, #d32f2f);
+    color: #fff;
+}
+
+.close-popup-btn:hover {
+    background: #d32f2f;
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(244, 67, 54, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        padding: 30px;
+    }
+
+    .modal-body {
+        flex-direction: column;
+    }
+
+    .expense-input-container {
+        width: 100%;
+    }
+
+    .modal-header {
+        font-size: 1.8rem;
+    }
+}
+
+/* Expense List Container */
+.expense-list {
+    background: linear-gradient(145deg, #e6e9f0, #eef1f5);
+    border-radius: 25px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 20px auto;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: 1px solid #ccc;
+    max-height: 80vh; /* Prevents popup from exceeding screen height */
+    overflow-y: auto; /* Enables scroll only when content overflows */
+}
+
+.expense-list:hover {
+    transform: scale(1.03);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Expense List Header */
+.expense-list h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #222;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+}
+
+/* Expense List Items */
+.expense-list ul {
+    list-style: none;
+    padding: 0;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    background: #ffffff;
+}
+
+.expense-list li {
+    padding: 14px 20px;
+    font-size: 1rem;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    overflow: hidden;
+}
+
+.expense-list li:last-child {
+    border-bottom: none;
+}
+
+.expense-list li:hover {
+    background: #e0f7fa;
+    transform: translateX(8px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Updated Expense Type Styling */
+.expense-list .expense-type {
+    text-align: left;
+    flex: 1;
+    font-weight: bold;
+    color: #00796b;
+    background: linear-gradient(90deg, #4CAF50, #2E7D32);
+    padding: 6px 12px;
+    border-radius: 10px;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Updated Expense Limit Styling */
+.expense-list .expense-limit {
+    text-align: right;
+    flex: 1;
+    font-weight: bold;
+    background: linear-gradient(90deg, #FF5252, #D32F2F);
+    padding: 6px 12px;
+    border-radius: 10px;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .expense-list {
+        padding: 15px;
+    }
+
+    .expense-list h3 {
+        font-size: 1.4rem;
+    }
+
+    .expense-list li {
+        font-size: 0.9rem;
+    }
+}

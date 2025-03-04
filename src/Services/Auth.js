@@ -65,10 +65,8 @@ export const PostCompanyData = async (companyData, companyLogo) => {
             formData.append("company_logo", companyLogo); // Make sure this matches the backend field name
         }
 
-        // Make the API request to submit the form data
         const response = await apiRequest("POST", "AddMasterCompany", formData, true);
 
-        // Check if the response is valid or has an error
         if (!response || response.error) {
             throw new Error(response?.message || "Failed to add company.");
         }
@@ -83,6 +81,7 @@ export const PostCompanyData = async (companyData, companyLogo) => {
 
 
 
+
 export const EditCompanyDetails = async (Syscompany_uuid) => {
     try {
         return await apiRequest("GET", `GetMasterCompany?Syscompany_uuid=${encodeURIComponent(Syscompany_uuid)}`);
@@ -91,6 +90,7 @@ export const EditCompanyDetails = async (Syscompany_uuid) => {
         return null;
     }
 };
+
 
 
 
@@ -106,6 +106,7 @@ export const UpdateCompanyData = async (companyData, companyLogo) => {
 
     return await apiRequest("PUT", "UpdateCompany", formData, true);
 };
+
 
 
 
@@ -130,9 +131,10 @@ export const GetMasterEmployee = async () => {
 
 
 
+
+
 export const GetRoleNames = async () => {
     try {
-
         const response = await apiRequest("GET", "MasterEmployee/GetRoleNames");
     
         return response.data || [];
@@ -142,6 +144,7 @@ export const GetRoleNames = async () => {
         return [];
     }
 };
+
 
 
 
@@ -158,4 +161,187 @@ export const postEmployeeData = async (employeeData) => {
     }
   };
   
-  
+
+
+  export const GetExpenseApprovers = async (sysAccountUuid) => {
+    try {
+        const response = await apiRequest("GET", `MasterEmployee/${encodeURIComponent(sysAccountUuid)}`);
+
+        if (response?.data) {
+            return response.data;
+        } else {
+            console.error("Invalid response structure:", response);
+            return [];
+        }
+    }  catch  {
+        return [];
+    }
+};
+
+export const GetFinalApprovers = async (sysAccountUuid) => {
+    try {
+        const response = await apiRequest("GET", `MasterEmployee/GetFinalApprovers/${encodeURIComponent(sysAccountUuid)}`);
+
+        if (response?.data) {
+            return response.data;
+        } else {
+            console.error("Invalid response structure:", response);
+            return [];
+        }
+    }  catch  {
+        return [];
+    }
+};
+
+
+export const GetEmployeedatabyid = async (Sysemployee_uuid) => {
+    try {
+        const response = await apiRequest("GET", `MasterEmployee/Editmasteremployeebyid?Sysemployee_uuid=${encodeURIComponent(Sysemployee_uuid)}`);
+        if (response) {
+            return response;
+        } else {
+            console.error("Employee not found.");
+            return null;
+        }
+      } catch {
+        return null;
+    }
+};
+
+export const UpdateMasterEmployee = async (sysemployee_uuid, updatedEmployeeData) => {
+    try {
+        const response = await apiRequest("PUT", `MasterEmployee/UpdateMasterEmployee?Sysemployee_uuid=${encodeURIComponent(sysemployee_uuid)}`,updatedEmployeeData);
+        if (response) {
+            return response;
+        } else {
+         return null;
+        }
+    }   catch  {
+       return null;
+    }
+};
+
+
+
+export const GetExpenseTypes = async (CompanyId) => {
+    try {
+        const response = await fetch(`http://192.168.1.161:5114/api/MasterEmployee/GetExpenseTypes/${CompanyId}`); 
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.json();
+
+        return data;
+    } catch (error) {
+        console.error("Error fetching expense types:", error);
+    }
+};
+
+
+
+export const PostExpenseType = async (expenseData) => {
+    try {
+        const response = await apiRequest("POST", "MasterEmployee/PostExpensetype", expenseData);
+
+        if (response && response.message === "Expenses added successfully!") {
+            console.log("Expense type added successfully:", response);
+            return response;
+        } else {
+            console.error("Failed to add expense type:", response);
+            throw new Error(response?.message || "Failed to add expense type.");
+        }
+    } catch (error) {
+        console.error("Error during expense type API call:", error.message);
+        throw error;
+    }
+};
+
+
+
+export const GetExpensegroup = async (CompanyId) => {
+    try {
+        const response = await apiRequest("GET", `MasterEmployee/GetExpensegroup/${encodeURIComponent(CompanyId)}`);
+        if (response) {
+            return response;
+        } else {
+            console.error("Employee not found.");
+            return null;
+        }
+    } catch (error) {
+        console.error("API Request Failed:", error);
+        return null;
+    }
+};
+
+
+
+export const PostExpensegroup = async (expensegroupdata) => {
+    try {
+        const response = await apiRequest("POST", "MasterEmployee/PostExpensegroup", expensegroupdata);
+
+        if (response && response.message === "Expenses added successfully!") {
+            console.log("Expense type added successfully:", response);
+            return response;
+        } else {
+            console.error("Failed to add expense type:", response);
+            throw new Error(response?.message || "Failed to add expense type.");
+        }
+    } catch (error) {
+        console.error("Error during expense type API call:", error.message);
+        throw error;
+    }
+};
+
+
+// export const GetExpensegroupdetails = async (sysexpensegroup_uuid) => {
+//     try {
+//         console.log('Fetching expense group details for UUID:', sysexpensegroup_uuid);
+//         const response = await apiRequest("GET", `MasterEmployee/MasterExpensegroupDetails/${encodeURIComponent(sysexpensegroup_uuid)}`);
+//         if (response) {
+//             const parsedResponse = JSON.parse(response);
+//             console.log('Parsed Response:', parsedResponse);
+//             return parsedResponse;
+//         } else {
+//             console.error("Expense group details not found.");
+//             return null;
+//         }
+//     } catch (error) {
+//         console.error("API Request Failed:", error);
+//         return null;
+//     }
+// };
+
+
+
+
+export const GetExpensegroupdetails = async (sysexpensegroup_uuid) => {
+    try {
+        const response = await apiRequest("GET", `MasterEmployee/MasterExpensegroupDetails/${encodeURIComponent(sysexpensegroup_uuid)}`);
+        if (response) {
+            return response
+        } else {
+            console.error("Employee not found.");
+            return null;
+        }
+    } catch (error) {
+        console.error("API Request Failed:", error);
+        return null;
+    }
+};
+export const PostMasterExpensegroupDetails = async (expensegroupdetailsdata) => {
+    try {
+        const response = await apiRequest("POST", "MasterEmployee/PostMasterExpensegroupDetails", expensegroupdetailsdata);
+
+
+        
+        if (response && response.message && response.message.includes("successfully")) {
+            return response;
+        } else {
+            console.error("Failed to add expense group details:", response);
+            throw new Error(response?.message || "Failed to add expense group details.");
+        }
+    } catch (error) {
+        console.error("Error during API call:", error.message);
+        throw error;
+    }
+};
