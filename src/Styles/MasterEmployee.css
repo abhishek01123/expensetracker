@@ -105,7 +105,6 @@ tbody tr:last-child td {
     margin-left: 0; /* Ensures no extra space */
     position: absolute;
     left: 70px; /* Adjust as needed */
-    top: 25px;
   }.button-container {
     width: 100%;
     display: flex;
@@ -120,7 +119,8 @@ tbody tr:last-child td {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-  }
+    top: 99px;
+    }
   
   
   .add-employee-btn:hover {
@@ -145,7 +145,7 @@ tbody tr:last-child td {
   }
   
   .edit-btn {
-    background-color: #28a745;
+    background-color: #4507ee;
     color: white;
     padding: 5px 10px;
     border: none;
@@ -154,6 +154,20 @@ tbody tr:last-child td {
   }
   
   .edit-btn:hover {
-    background-color: #218838;
+    background-color: #0817eb;
+  }
+  .master-employee-container {
+    overflow: hidden;
+  }
+  
+  table {
+    table-layout: fixed;
+    width: 100%;
+  }
+  
+  th, td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   

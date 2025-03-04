@@ -243,13 +243,7 @@
 
 
 import React, { useState, useEffect } from "react";
-import { 
-    GetCountryList, 
-    GetStateList, 
-    GetCityList, 
-    EditCompanyDetails, 
-    UpdateCompanyData 
-} from "../Services/Auth";
+import { GetCountryList, GetStateList, GetCityList, EditCompanyDetails, UpdateCompanyData } from "../Services/Auth";
 
 const EditCompanyPopup = ({ onClose, Syscompany_uuid }) => {
     const [companyData, setCompanyData] = useState({
@@ -286,6 +280,7 @@ const EditCompanyPopup = ({ onClose, Syscompany_uuid }) => {
         fetchCountries();
     }, [Syscompany_uuid]);
 
+
     const fetchCompanyDetails = async (Syscompany_uuid) => {
         try {
             const companyDetails = await EditCompanyDetails(Syscompany_uuid);
@@ -303,6 +298,8 @@ const EditCompanyPopup = ({ onClose, Syscompany_uuid }) => {
             console.error("Error fetching company details:", error);
         }
     };
+
+    
 
     const fetchCountries = async () => {
         try {
@@ -347,6 +344,7 @@ const EditCompanyPopup = ({ onClose, Syscompany_uuid }) => {
         }
     };
 
+    
     const handleLogoChange = (e) => {
         const file = e.target.files[0];
         if (file) {
@@ -357,6 +355,7 @@ const EditCompanyPopup = ({ onClose, Syscompany_uuid }) => {
         }
     };
 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -366,8 +365,7 @@ const EditCompanyPopup = ({ onClose, Syscompany_uuid }) => {
             } else {
                 console.warn("onClose is not a function");
             }
-        } catch (error) {
-            console.error("Error updating company:", error);
+        } catch  {
         }
     };
 
