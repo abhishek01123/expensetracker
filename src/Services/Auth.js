@@ -223,9 +223,10 @@ export const UpdateMasterEmployee = async (sysemployee_uuid, updatedEmployeeData
 
 
 
+
 export const GetExpenseTypes = async (CompanyId) => {
     try {
-        const response = await fetch(`http://192.168.1.161:5114/api/MasterEmployee/GetExpenseTypes/${CompanyId}`); 
+        const response = await fetch(`http://192.168.1.122:5114/api/MasterEmployee/GetExpenseTypes/${CompanyId}`); 
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -328,12 +329,14 @@ export const GetExpensegroupdetails = async (sysexpensegroup_uuid) => {
         return null;
     }
 };
+
+
+
+
 export const PostMasterExpensegroupDetails = async (expensegroupdetailsdata) => {
     try {
         const response = await apiRequest("POST", "MasterEmployee/PostMasterExpensegroupDetails", expensegroupdetailsdata);
 
-
-        
         if (response && response.message && response.message.includes("successfully")) {
             return response;
         } else {
@@ -343,5 +346,24 @@ export const PostMasterExpensegroupDetails = async (expensegroupdetailsdata) => 
     } catch (error) {
         console.error("Error during API call:", error.message);
         throw error;
+    }
+};
+
+
+
+
+export const GetEmployeeexpense = async (posted_by) => {
+    console.log('GetEmployeeexpense:', posted_by);
+    try {
+        const response = await apiRequest("GET", `Employeeexpense/GetEmployeeexpense/${(posted_by)}`);
+        if (response) {
+            return response
+        } else {
+            console.error("Employee not found.");
+            return null;
+        }
+    } catch (error) {
+        console.error("API Request Failed:", error);
+        return null;
     }
 };

@@ -246,7 +246,7 @@ const MasterEmployee = () => {
                   Master
                 </button>
                 <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="masterDropdown">
-                  <li><a className="dropdown-item" href="#">Employee</a></li>
+                  <li><a className="dropdown-item" href="/masteremployee">Employee</a></li>
 
                   <li>
                   <a

@@ -1,4 +1,4 @@
-/* Enhanced container styling */
+Enhanced container styling
 .expenses-container {
   max-width: 800px;
   margin: 40px auto;
@@ -36,12 +36,14 @@
   border-radius: 30px;
   cursor: pointer;
   display: block;
-  width: 35%;
+  width: 70px;
   font-size: 20px;
   font-weight: 600;
+  font-size: small;
   margin: 0 auto 25px auto;
   transition: background 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  margin-left: 17px;
 }
 
 /* Hover effect for Add New Expense Button */
@@ -191,6 +193,8 @@
   transform: scale(1.08);
 }
 
+
+
 /* Fade-in animation */
 @keyframes fadeIn {
   from {
@@ -201,4 +205,46 @@
       opacity: 1;
       transform: scale(1);
   }
+}
+/* Expensegroup.css */
+
+/* Customizing AG Grid container */
+.ag-theme-alpine {
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+/* Styling the AG Grid header */
+.ag-theme-alpine .ag-header {
+  background-color: #0e91e7;
+  color: white;
+  font-size: 15px;
+  text-align: center;
+}
+
+/* Styling AG Grid rows */
+.ag-theme-alpine .ag-row {
+  font-size: 14px;
+  color: #333;
+}
+
+.ag-theme-alpine .ag-row:hover {
+  background-color: #e0f7fa;
+}
+
+/* Styling buttons inside the grid */
+.add-button {
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background-color: #1976D2;
 }

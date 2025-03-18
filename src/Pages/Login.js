@@ -41,7 +41,8 @@ const Login = () => {
 				
 				if (response.usertype === "CompanyAdmin") {
 					navigate('/masteremployee');
-
+				  } else if (response.usertype === "Submitter" || response.usertype === "Approver") {
+					navigate('/employee');
 				} else {
 					navigate('/dashboard');
 				}

@@ -8,7 +8,7 @@ import Expensetypes from "./Pages/Expensetypes"; // ✅ Import Expensetypes page
 // import DarkModeToggle from "./Pages/DarkModeToggle"; 
 import Expensegroup from "./Pages/Expensegroup"; // ✅ Import Expensetypes page
 import Masterexpensegroupdetails from "./Pages/Masterexpensegroupdetails"; // ✅ Import Expensegroupdetails
-
+import EmployeeExpenses from "./Pages/EmployeeExpenses"; // ✅ Import Employee page
 
 function App() {
   return (
@@ -22,6 +22,7 @@ function App() {
         <Route path="/expensetypes" element={<Expensetypes />} /> {/* ✅ Add route for Expensetypes */}
         <Route path="/expensegroup" element={<Expensegroup />} /> {/* ✅ Add route for Expensegroup */}
         <Route path="/login" element={<Login />} />  {/* ✅ Ensure this route exists */}
+        <Route path="/employee" element={<EmployeeExpenses />} /> {/* ✅ Route for Employee page */}
 
 
       </Routes>

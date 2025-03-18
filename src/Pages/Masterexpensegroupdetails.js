@@ -310,9 +310,9 @@ const Masterexpensegroupdetails = ({ isOpen, onClose, sysexpensegroup_uuid }) =>
 
         try {
             const response = await PostMasterExpensegroupDetails(expenseDetails);
-        const addedExpense = {
-         expensetype: expenseTypes.find(type => type.sysexpensetype_uuid === expensetype)?.expensetype,
-         maxlimit: maxLimit
+            const addedExpense = {
+            expensetype: expenseTypes.find(type => type.sysexpensetype_uuid === expensetype)?.expensetype,
+            maxlimit: maxLimit
 };
 setExpenseGroupDetails([...expenseGroupDetails, addedExpense]);
 } catch (error) {

@@ -1,14 +1,12 @@
-/* General container */
 .login-page .login-container {
   display: flex;
   height: 100vh;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #5a67d8, #d946ef);
+  background: linear-gradient(135deg, #b1b5db, #949b9b);
   padding: 20px;
 }
 
-/* Left side of the login container */
 .login-page .left-side {
   flex: 1;
   background: rgba(58, 75, 143, 0.9);
@@ -38,7 +36,6 @@
   font-family: 'Poppins', sans-serif;
 }
 
-/* Right side of the login container */
 .login-page .right-side {
   flex: 1;
   display: flex;
@@ -46,7 +43,6 @@
   align-items: center;
 }
 
-/* Glassmorphism form styling */
 .login-page form {
   width: 100%;
   max-width: 450px;
@@ -67,12 +63,10 @@
   color: #fff;
 }
 
-/* Form group styling */
 .login-page .form-group {
   margin-bottom: 20px;
 }
 
-/* Label styling */
 .login-page label {
   font-size: 1.2rem;
   color: #fff;
@@ -81,7 +75,6 @@
   font-weight: 600;
 }
 
-/* Input styling */
 .login-page input {
   width: 100%;
   padding: 12px;
@@ -103,7 +96,6 @@
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
 }
 
-/* Button styling */
 .login-page button {
   width: 100%;
   padding: 14px;
@@ -124,7 +116,6 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Responsive adjustments */
 @media (max-width: 900px) {
   .login-page .login-container {
     flex-direction: column;
@@ -150,7 +141,6 @@
   }
 }
 
-/* Fade-in animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -162,20 +152,18 @@
   }
 }
 
-/* Adjusting the spinner position */
 .spinner {
-  margin-top: 10px; /* Space between the button and the spinner */
+  margin-top: 10px; 
   position: relative;
-  width: 4px; /* Size of the spinner */
+  width: 4px; 
   height: 4px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-left: auto;
-  margin-right: auto; /* Centers the spinner horizontally */
+  margin-right: auto; 
 }
 
-/* Spinner styling */
 .spinner div {
   position: absolute;
   width: 50%;
@@ -185,7 +173,6 @@
   animation: spinner-fzua35 1s calc(var(--delay) * 1s) infinite ease;
 }
 
-/* Spinner animation (same as before) */
 .spinner div:nth-child(1) { --delay: 0.1; --rotation: 36; --translation: 150; }
 .spinner div:nth-child(2) { --delay: 0.2; --rotation: 72; --translation: 150; }
 .spinner div:nth-child(3) { --delay: 0.3; --rotation: 108; --translation: 150; }

@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from "react";
-import { GetEmployeedatabyid, GetRoleNames, GetExpenseApprovers, GetFinalApprovers,UpdateMasterEmployee } from "../Services/Auth";
+import { GetEmployeedatabyid, GetRoleNames, GetExpenseApprovers, GetFinalApprovers,UpdateMasterEmployee,GetExpensegroup } from "../Services/Auth";
 import "../Styles/AddEmployeePopup.css";
 
 const EditEmployeePopup = ({ onClose, employee, onEmployeeUpdated }) => {
@@ -12,13 +12,16 @@ const EditEmployeePopup = ({ onClose, employee, onEmployeeUpdated }) => {
     phoneNo: "",
     roleName: "",
     expense_Approver: "",
-    final_Approver: ""
+    final_Approver: "",
+    level: "",
   });
 
 
   const [roles, setRoles] = useState([]);
   const [expenseApprovers, setExpenseApprovers] = useState([]);
   const [finalApprovers, setFinalApprovers] = useState([]);
+    const [levels, setLevels] = useState([]);
+  
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -51,6 +54,10 @@ const EditEmployeePopup = ({ onClose, employee, onEmployeeUpdated }) => {
           setExpenseApprovers(expenseApproversData || []);
           setFinalApprovers(finalApproversData || []);
         }
+        
+        if (syscompanyUuid) {
+          fetchLevels(syscompanyUuid);
+        }
       } catch (error) {
         setMessage("Error fetching data. Please try again.");
         console.error(error);
@@ -59,6 +66,23 @@ const EditEmployeePopup = ({ onClose, employee, onEmployeeUpdated }) => {
 
     fetchInitialData();
   }, [employee.sysemployee_uuid]);
+
+  
+  // LEVEL API CALL HERE
+    const fetchLevels = async (companyId) => {
+      try {
+      const levelsData = await GetExpensegroup(companyId);
+        setLevels(levelsData.map(item => ({
+          value: item.employee_grade,
+          text: item.employee_grade
+        })));
+      } catch {
+        setMessage("Error fetching levels. Please try again.");
+      }
+    };
+    
+
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -134,6 +158,20 @@ const EditEmployeePopup = ({ onClose, employee, onEmployeeUpdated }) => {
             ))}
           </select>
         </div>
+
+        <div className="form-row">
+        <select name="level" value={employeeData.level} onChange={handleChange}>
+        <option value="">Select Level</option>
+         {levels.length > 0 ? (
+         levels.map((level, index) => (
+         <option key={index} value={level.value}>{level.text}</option>
+        ))
+       ) : (
+        <option disabled>Loading levels...</option>
+  )}
+</select>
+      </div>
+
 
         <div className="button-group">
           <button type="submit" className="submit-button" disabled={loading}>{loading ? "Updating..." : "Update"}</button>
